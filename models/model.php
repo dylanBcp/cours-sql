@@ -31,3 +31,11 @@
         $req->execute();
         return $req;
     }
+
+    function createFormation($formationNom){
+        global $db;
+        $req = $db->prepare('INSERT INTO formation (formation_id, nom_formation) VALUES (NULL, :nomFormation)');
+        $req->bindParam(':nomFormation', $formationNom);
+        $req->execute();
+        return $req;
+    }
