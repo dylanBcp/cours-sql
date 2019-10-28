@@ -1,6 +1,6 @@
 <?php
     try {
-        $host = "localhost";
+        $host = "localhost:8889";
         $user = "root";
         $password = "root" ;
         $dbname = "cours_sql";
@@ -27,7 +27,7 @@
     function getEtudiantByName($name){
         global $db;
         $req = $db->prepare('SELECT * from etudiant WHERE nom = :nom' );
-        $req->bindParam(':nom', $nom);
+        $req->bindParam(':nom', $name);
         $req->execute();
         return $req;
     }
